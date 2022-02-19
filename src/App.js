@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router";
-import Todo from "./components/Todo";
+import TodoContainer from "./components/containers/TodoContainer";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Todo />} />
+      <Route path="/" element={<TodoContainer />} />
     </Routes>
   );
 }
