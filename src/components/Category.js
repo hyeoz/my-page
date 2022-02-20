@@ -3,9 +3,17 @@ import styled from "styled-components";
 
 const CategoryWrapper = styled.div`
   margin-bottom: 20px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   .cat {
     margin-right: 5px;
+    /* border: solid 1px black; */
+    /* border-radius: 10px; */
+    text-decoration: none;
+    padding: 3px;
+    color: #0065bf;
+    &:hover {
+      color: #4b0081;
+    }
   }
 `;
 
@@ -50,7 +58,7 @@ const Categories = () => {
             to={cat.name === "all" ? "/news" : `/news/${cat.name}`}
             className="cat"
           >
-            {cat.name}
+            {cat.text}
           </NavLink>
         );
       })}

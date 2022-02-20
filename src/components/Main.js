@@ -3,12 +3,23 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Navigator from "./Navigator";
+import bg01 from "./image/bg01.jpeg";
+import bg02 from "./image/bg02.jpeg";
+import bg03 from "./image/bg03.jpeg";
+import bg04 from "./image/bg04.jpeg";
+import bg05 from "./image/bg05.jpeg";
 
-// let random = "01";
+const randomImage = [bg01, bg02, bg03, bg04, bg05];
+const num = Math.floor(Math.random() * 4 + 1);
 
 const MainWrapper = styled.div`
   font-family: "Patua One", cursive;
   text-align: center;
+  margin: 0 auto;
+  background-image: url(${randomImage[num]});
+  h1 {
+    margin: 0;
+  }
 `;
 
 const ClockContainer = () => {
@@ -25,7 +36,10 @@ const ClockContainer = () => {
 
   return (
     <div>
-      <h1>{time.format("YYYY년 MM월 DD월 hh시 mm분 ss초")}</h1>
+      <h1>
+        It's <b style={{ color: "#f44336" }}>{time.format("hh : mm : ss")}</b>{" "}
+        Right Now!
+      </h1>
     </div>
   );
 };
@@ -63,7 +77,9 @@ const WeatherContainer = () => {
         <h1>Loading Weather Information...</h1>
       ) : (
         <div>
-          <h1>{city}</h1>
+          <h1>
+            <b>{city}</b>
+          </h1>
           <h2>{weather}</h2>
         </div>
       )}
@@ -73,11 +89,13 @@ const WeatherContainer = () => {
 
 const Main = () => {
   return (
-    <MainWrapper>
+    <div>
       <Navigator />
-      <WeatherContainer />
-      <ClockContainer />
-    </MainWrapper>
+      <MainWrapper>
+        <WeatherContainer />
+        <ClockContainer />
+      </MainWrapper>
+    </div>
   );
 };
 

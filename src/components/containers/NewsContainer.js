@@ -14,11 +14,13 @@ const NewsContainer = () => {
   const categorySelected = category || "all";
 
   return (
-    <NewsWrapper>
+    <div>
       <Navigator />
-      <Categories />
-      <NewsList category={categorySelected} />
-    </NewsWrapper>
+      <NewsWrapper>
+        <Categories />
+        <NewsList category={categorySelected} />
+      </NewsWrapper>
+    </div>
   );
 };
 

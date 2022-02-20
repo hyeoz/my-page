@@ -9,7 +9,7 @@ const NewsItem = ({ article }) => {
       {urlToImage && (
         <div>
           <a href={url} target="_blank" rel="noreferrer noopener">
-            <img src={urlToImage} alt="thumbnail" style={{ width: "50rem" }} />
+            <img src={urlToImage} alt="thumbnail" style={{ width: "40rem" }} />
           </a>
         </div>
       )}

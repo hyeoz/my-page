@@ -8,6 +8,7 @@ import Todos from "../Todos";
 const TodoWrapper = styled.div`
   text-align: center;
   font-family: "Gowun Dodum", sans-serif;
+  background: #f0e6fa;
   button {
     background: #f0e6fa;
     margin-left: 0.1rem;
@@ -30,15 +31,17 @@ const TodoContainer = () => {
   const onRemove = useCallback((id) => dispatch(remove(id)), [dispatch]);
 
   return (
-    <TodoWrapper>
+    <div>
       <Navigator />
-      <Todos
-        todos={todos}
-        onInsert={onInsert}
-        onToggle={onToggle}
-        onRemove={onRemove}
-      />
-    </TodoWrapper>
+      <TodoWrapper>
+        <Todos
+          todos={todos}
+          onInsert={onInsert}
+          onToggle={onToggle}
+          onRemove={onRemove}
+        />
+      </TodoWrapper>
+    </div>
   );
 };
 

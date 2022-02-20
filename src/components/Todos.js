@@ -7,16 +7,19 @@ const TodoItems = ({ todo, onToggle, onRemove }) => {
     todo.id,
     JSON.stringify({ text: todo.text, done: todo.done })
   );
-  if (todo.done === true) {
-    // 끝났으면 지우기
-    localStorage.removeItem(todo.id);
-  }
 
   return (
     <div>
       <input
         type="checkbox"
-        onClick={() => onToggle(todo.id)}
+        onClick={() => {
+          onToggle(todo.id);
+          localStorage.removeItem(todo.id);
+          localStorage.setItem(
+            todo.id,
+            JSON.stringify({ text: todo.text, done: !todo.done })
+          );
+        }}
         checked={todo.done}
         readOnly={true}
       />
@@ -64,16 +67,22 @@ const Todos = ({ todos, onInsert, onToggle, onRemove }) => {
   let todoLocal = [];
   todoDummy.map((d) => {
     // console.log(JSON.parse(d.body), "parsing data");
-    if (Date.now() - d.id > 86400000) {
-      // 24시간 지나면 삭제되게
-      localStorage.removeItem(d.id);
-    }
+
     const item = {
       id: d.id,
       text: JSON.parse(d.body).text,
       done: JSON.parse(d.body).done,
     };
     todoLocal.push(item);
+    if (Date.now() - d.id > 86400000) {
+      // 24시간 지나면 삭제되게
+      localStorage.removeItem(d.id);
+    }
+    // console.log(typeof JSON.parse(d.body).done);
+    if (JSON.parse(d.body).done == true) {
+      // 끝났으면 지우기
+      localStorage.removeItem(d.id);
+    }
   });
   // console.log(todoLocal, "todo local");
 
