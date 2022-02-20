@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navigator from "./Navigator";
 
 const TodoItems = ({ todo, onToggle, onRemove }) => {
   // console.log(todo, "todo items");
@@ -85,19 +84,7 @@ const Todos = ({ todos, onInsert, onToggle, onRemove }) => {
         <button type="submit">Add</button>
       </form>
       <div>
-        {!todoLocal && <h2>아직 끝내지 못한 일이 남았어요!</h2>}
-        {todoLocal.length !== 0 ? (
-          <div>
-            {todoLocal.map((todo) => (
-              <TodoItems
-                key={todo.id}
-                todo={todo}
-                onToggle={onToggle}
-                onRemove={onRemove}
-              />
-            ))}
-          </div>
-        ) : todos.length !== 0 ? (
+        {todos.length !== 0 ? (
           todos.map((todo) => (
             <TodoItems
               key={todo.id}
@@ -109,6 +96,21 @@ const Todos = ({ todos, onInsert, onToggle, onRemove }) => {
         ) : (
           <p>오늘은 할 일이 없네요?</p>
         )}
+      </div>
+      <div>
+        {todoLocal.length !== 0 ? (
+          <div>
+            <h2>아직 끝내지 못한 일이 남았어요!</h2>
+            {todoLocal.map((todo) => (
+              <TodoItems
+                key={todo.id}
+                todo={todo}
+                onToggle={onToggle}
+                onRemove={onRemove}
+              />
+            ))}
+          </div>
+        ) : null}
       </div>
     </div>
   );
