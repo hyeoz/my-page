@@ -1,4 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+
+const CategoryWrapper = styled.div`
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  .cat {
+    margin-right: 5px;
+  }
+`;
 
 const categoryList = [
   {
@@ -33,20 +42,19 @@ const categoryList = [
 
 const Categories = () => {
   return (
-    <div>
+    <CategoryWrapper>
       {categoryList.map((cat) => {
         return (
           <NavLink
             key={cat.name}
             to={cat.name === "all" ? "/news" : `/news/${cat.name}`}
+            className="cat"
           >
             {cat.name}
           </NavLink>
         );
       })}
-      <Link to="/">Home</Link>
-      <Link to="/news">Back</Link>
-    </div>
+    </CategoryWrapper>
   );
 };
 

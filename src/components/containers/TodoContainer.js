@@ -1,7 +1,22 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { insert, remove, toggle } from "../../modules/todos";
+import Navigator from "../Navigator";
 import Todos from "../Todos";
+
+const TodoWrapper = styled.div`
+  text-align: center;
+  font-family: "Gowun Dodum", sans-serif;
+  button {
+    background: #f0e6fa;
+    margin-left: 0.1rem;
+    font-family: "Patua One", cursive;
+  }
+  input {
+    margin-bottom: 10px;
+  }
+`;
 
 const TodoContainer = () => {
   const { todos } = useSelector(({ todos }) => ({
@@ -15,12 +30,15 @@ const TodoContainer = () => {
   const onRemove = useCallback((id) => dispatch(remove(id)), [dispatch]);
 
   return (
-    <Todos
-      todos={todos}
-      onInsert={onInsert}
-      onToggle={onToggle}
-      onRemove={onRemove}
-    />
+    <TodoWrapper>
+      <Navigator />
+      <Todos
+        todos={todos}
+        onInsert={onInsert}
+        onToggle={onToggle}
+        onRemove={onRemove}
+      />
+    </TodoWrapper>
   );
 };
 

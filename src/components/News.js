@@ -9,7 +9,7 @@ const NewsItem = ({ article }) => {
       {urlToImage && (
         <div>
           <a href={url} target="_blank" rel="noreferrer noopener">
-            <img src={urlToImage} alt="thumbnail" />
+            <img src={urlToImage} alt="thumbnail" style={{ width: "50rem" }} />
           </a>
         </div>
       )}
@@ -54,9 +54,13 @@ const NewsList = ({ category }) => {
   }
 
   return (
-    <div>
+    <div style={{ padding: "0 50px" }}>
       {articles.map((article) => {
-        return <NewsItem key={article.url} article={article} />;
+        return (
+          <div style={{ marginBottom: "30px", borderBottom: "solid 1px grey" }}>
+            <NewsItem key={article.url} article={article} />
+          </div>
+        );
       })}
     </div>
   );
