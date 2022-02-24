@@ -10,7 +10,7 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter basename={window.location.pathname || ""}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </Provider>,

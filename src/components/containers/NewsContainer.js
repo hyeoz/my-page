@@ -4,9 +4,15 @@ import Categories from "../Category";
 import Navigator from "../Navigator";
 import NewsList from "../News";
 
-const NewsWrapper = styled.div`
+const Wrapper = styled.div`
   font-family: "Gowun Dodum", sans-serif;
   text-align: center;
+  /* background: ; */
+`;
+
+const NewsWrapper = styled.div`
+  display: inline-block;
+  /* border: solid 1px white; */
 `;
 
 const NewsContainer = () => {
@@ -14,12 +20,16 @@ const NewsContainer = () => {
   const categorySelected = category || "all";
 
   return (
-    <div>
-      <Navigator />
-      <NewsWrapper>
-        <Categories />
-        <NewsList category={categorySelected} />
-      </NewsWrapper>
+    <div style={{ backgroundColor: "#bcbcbc", paddingTop: "10px" }}>
+      <Wrapper>
+        <Navigator />
+        <NewsWrapper>
+          <div>
+            <Categories />
+          </div>
+          <NewsList key={category} category={categorySelected} />
+        </NewsWrapper>
+      </Wrapper>
     </div>
   );
 };

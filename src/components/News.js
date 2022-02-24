@@ -1,5 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const ItemWrapper = styled.div`
+  margin: 0 10%;
+  padding: 3% 5%;
+  border: solid 1px white;
+  background-color: rgba(255, 255, 255, 0.3);
+`;
 
 const NewsItem = ({ article }) => {
   const { title, description, url, urlToImage } = article;
@@ -54,15 +62,20 @@ const NewsList = ({ category }) => {
   }
 
   return (
-    <div style={{ padding: "0 50px" }}>
+    <ItemWrapper>
       {articles.map((article) => {
         return (
-          <div style={{ marginBottom: "30px", borderBottom: "solid 1px grey" }}>
+          <div
+            style={{
+              marginBottom: "30px",
+              borderBottom: "solid 1px grey",
+            }}
+          >
             <NewsItem key={article.url} article={article} />
           </div>
         );
       })}
-    </div>
+    </ItemWrapper>
   );
 };
 

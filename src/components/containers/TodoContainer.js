@@ -8,11 +8,22 @@ import Todos from "../Todos";
 const TodoWrapper = styled.div`
   text-align: center;
   font-family: "Gowun Dodum", sans-serif;
-  background: #f0e6fa;
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 10px;
+  border: solid 1px white;
+
   button {
-    background: #f0e6fa;
+    background: #ffe28d;
     margin-left: 0.1rem;
     font-family: "Patua One", cursive;
+
+    &:hover {
+      background: #d3bc79;
+    }
   }
   input {
     margin-bottom: 10px;
@@ -31,7 +42,13 @@ const TodoContainer = () => {
   const onRemove = useCallback((id) => dispatch(remove(id)), [dispatch]);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#f2e7c9",
+        height: "100vh",
+        paddingTop: "10px",
+      }}
+    >
       <Navigator />
       <TodoWrapper>
         <Todos

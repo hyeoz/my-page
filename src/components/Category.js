@@ -3,7 +3,12 @@ import styled from "styled-components";
 
 const CategoryWrapper = styled.div`
   margin-bottom: 20px;
-  font-size: 1rem;
+  font-size: 1.3rem;
+  border-top: dotted 1px white;
+  border-bottom: dotted 1px white;
+  display: inline-block;
+  font-style: bold;
+
   .cat {
     margin-right: 5px;
     /* border: solid 1px black; */

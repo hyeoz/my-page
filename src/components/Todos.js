@@ -1,4 +1,9 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const ItemWrapper = styled.div`
+  position: absolute;
+`;
 
 const TodoItems = ({ todo, onToggle, onRemove }) => {
   // console.log(todo, "todo items");
@@ -103,13 +108,13 @@ const Todos = ({ todos, onInsert, onToggle, onRemove }) => {
             />
           ))
         ) : (
-          <p>오늘은 할 일이 없네요?</p>
+          <p>Please write something you need to do!</p>
         )}
       </div>
       <div>
         {todoLocal.length !== 0 ? (
           <div>
-            <h2>아직 끝내지 못한 일이 남았어요!</h2>
+            <h2>There are few things Remain...</h2>
             {todoLocal.map((todo) => (
               <TodoItems
                 key={todo.id}

@@ -2,16 +2,18 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const NavigatorWrapper = styled.div`
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
+  margin-left: 10px;
+
   button {
     font-size: 1rem;
     font-family: "Patua One", cursive;
     margin: 0.1rem;
-    background: #ffd9d6;
+    background: #ffe28d;
     border-radius: 50px;
     &:hover {
-      background: #efcdca;
+      background: #d3bc79;
     }
   }
 `;
